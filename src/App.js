@@ -1,10 +1,13 @@
 import React from 'react';
-import { Container, Navbar } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import NavComponent from './components/NavComponent';
 import CartScreen from './Screen/CartScreen';
 import HomeScreen from './Screen/HomeScreen';
 import ProductScreen from './Screen/ProductScreen';
+import SigninScreen from './Screen/SigninScreen';
+import SignupScreen from './Screen/SignupScreen';
+import FavScreen from './Screen/FavScreen'
+import ShippingScreen from './Screen/ShippingScreen';
 
 
 
@@ -13,20 +16,19 @@ function App() {
   return (
     <BrowserRouter>
         <div className="d-flex flex-column site-container">
-        <header>
-        <Navbar bg="secondary" variant="dark">
-            <Container>
-            <LinkContainer to='/'>
-                <Navbar.Brand>CUKUR Book Shop</Navbar.Brand>
-            </LinkContainer>
-            </Container>
-            </Navbar>
-        </header>
+    <NavComponent/>
         <main>
             <Routes>
             <Route path='/product/:id' element={<ProductScreen/>}></Route>
                 <Route path='/' element={<HomeScreen/>}></Route>
                 <Route path="/cart" element={<CartScreen/>} />
+                <Route path="/signin" element={<SigninScreen/>} />
+                <Route path="/signup" element={<SignupScreen/>} />
+                <Route path="/fav" element={<FavScreen/>} />
+                <Route path="/shipping" element={<ShippingScreen/>} />
+
+
+
             </Routes>
             </main>
             <footer>
